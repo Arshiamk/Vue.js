@@ -62,7 +62,7 @@ const isActive = (path) => route.path === path;
           <span
             class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400"
           >
-            Vue.Arshia
+            Vue Glass
           </span>
         </div>
         <nav class="mt-5 px-2 space-y-1">
@@ -108,7 +108,7 @@ const isActive = (path) => route.path === path;
             <span
               class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400"
             >
-              Vue.Arshia
+              Vue Glass
             </span>
           </div>
           <nav class="mt-8 flex-1 px-2 space-y-2">

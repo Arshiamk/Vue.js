@@ -1,18 +1,20 @@
 {
-  "name": "vue-dashboard",
+  "name": "vue-glass-dashboard",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "author": "Arshiamk",
-  "description": "A premium, responsive Vue.js 3 dashboard with glassmorphism UI, interactive charts, and a modern design system.",
+  "author": "Arshia Mirshekar",
+  "license": "MIT",
+  "description": "A responsive Vue 3 admin dashboard with glassmorphism UI, interactive charts, and a modern design system.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arshiamk/Vue.js.git"
+    "url": "git+https://github.com/Arshiamk/vue-glass-dashboard.git"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -25,9 +27,12 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/test-utils": "^2.4.11",
     "autoprefixer": "^10.4.24",
+    "jsdom": "^29.1.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^4.1.9"
   }
 }

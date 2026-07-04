@@ -13,7 +13,7 @@ const form = ref({
   email: "arshia@example.com",
   phone: "+1 (555) 123-4567",
   location: "San Francisco, CA",
-  bio: "Passionate developer with a knack for building beautiful and functional user interfaces. Currently working on Vue.Arshia, a premium dashboard template.",
+  bio: "Passionate developer with a knack for building beautiful and functional user interfaces. Currently working on Vue Glass Dashboard, a Vue 3 admin dashboard.",
 });
 
 const saveProfile = () => {
