@@ -1,10 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref(JSON.parse(localStorage.getItem('user')) || null)
-    const router = useRouter()
 
     const isAuthenticated = computed(() => !!user.value)
 
@@ -27,8 +25,6 @@ export const useAuthStore = defineStore('auth', () => {
     function logout() {
         user.value = null
         localStorage.removeItem('user')
-        // We need to handle redirect in the component or here if router is available, 
-        // but often better to return promise or let component handle navigation
     }
 
     return { user, isAuthenticated, login, logout }

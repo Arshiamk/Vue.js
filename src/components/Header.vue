@@ -1,14 +1,10 @@
 <script setup>
+import { ref } from "vue";
 import { useAuthStore } from "../stores/auth";
 import { useRouter } from "vue-router";
 import { useToast } from "../composables/useToast";
-// removed headlessui
-
+import { useClickOutside } from "../composables/useClickOutside";
 import { Bars3Icon, BellIcon } from "@heroicons/vue/24/outline";
-
-// Note: HeadlessUI is great but to keep dependency count low and "demo" simple, I'll use simple conditional rendering for dropdown if HeadlessUI isn't installed.
-// Actually, I didn't install HeadlessUI. I'll implement a custom dropdown or just a simple button for Logout.
-import { ref } from "vue";
 
 const emit = defineEmits(["toggle-sidebar"]);
 const authStore = useAuthStore();
@@ -16,6 +12,11 @@ const router = useRouter();
 const { addToast } = useToast();
 
 const dropdownOpen = ref(false);
+const dropdownRef = ref(null);
+
+useClickOutside(dropdownRef, () => {
+  dropdownOpen.value = false;
+});
 
 const logout = () => {
   authStore.logout();
@@ -47,13 +48,13 @@ const logout = () => {
         </button>
 
         <!-- Profile dropdown -->
-        <div class="ml-3 relative">
+        <div ref="dropdownRef" class="ml-3 relative">
           <div>
             <button
               @click="dropdownOpen = !dropdownOpen"
               class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               id="user-menu-button"
-              aria-expanded="false"
+              :aria-expanded="dropdownOpen"
               aria-haspopup="true"
             >
               <span class="sr-only">Open user menu</span>
@@ -75,7 +76,6 @@ const logout = () => {
             aria-orientation="vertical"
             aria-labelledby="user-menu-button"
             tabindex="-1"
-            @click.away="dropdownOpen = false"
           >
             <button
               @click="
@@ -115,10 +115,4 @@ const logout = () => {
       </div>
     </div>
   </div>
-  <!-- Backdrop for dropdown (simple click away handler alternative) -->
-  <div
-    v-if="dropdownOpen"
-    class="fixed inset-0 z-0"
-    @click="dropdownOpen = false"
-  ></div>
 </template>

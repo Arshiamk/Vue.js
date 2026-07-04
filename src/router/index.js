@@ -8,6 +8,7 @@ import ReportsView from '../views/ReportsView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import CalendarView from '../views/CalendarView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -55,9 +56,10 @@ const router = createRouter({
         }
       ]
     },
-    { 
-        path: '/:pathMatch(.*)*', 
-        redirect: '/' 
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: NotFound
     }
   ]
 })
